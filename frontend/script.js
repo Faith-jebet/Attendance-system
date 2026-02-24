@@ -1,8 +1,4 @@
-// =======================
-// Main Application Entry Point
-// =======================
 
-// Load all modules in correct order
 (async function initApp() {
   console.log("Initializing Attendance System...");
 

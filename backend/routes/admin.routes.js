@@ -25,16 +25,78 @@ router.get("/attendance/export/excel", auth, role("ADMIN"), admin.exportAttendan
 // Verify attendance (existing route)
 router.get("/verify/:id", auth, role("ADMIN"), admin.verifyAttendance); 
 
-// Get all settings
-router.get("/settings", auth, role("ADMIN"), admin.getSettings);
+exports.getSettings = async (req, res) => {
+  try {
+    const results = await query('SELECT * FROM system_settings ORDER BY id');
+    
+    // Convert to a key-value object for easier frontend use
+    const settings = {};
+    results.forEach(row => {
+      let value = row.setting_value;
+      // Auto-cast by type
+      if (row.setting_type === 'boolean') value = value === 'true';
+      if (row.setting_type === 'number') value = parseFloat(value);
+      settings[row.setting_key] = value;
+    });
 
-// Update working hours
-router.put("/settings/working-hours", auth, role("ADMIN"), admin.updateWorkingHours);
+    res.json({ success: true, data: settings });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Error fetching settings', error: error.message });
+  }
+};
 
-// Update attendance policies
-router.put("/settings/policies", auth, role("ADMIN"), admin.updatePolicies);
+// UPDATE WORKING HOURS
+exports.updateWorkingHours = async (req, res) => {
+  try {
+    const { work_start_time, work_end_time } = req.body;
+    const adminId = req.user.id;
 
-// Update notification settings
-router.put("/settings/notifications", auth, role("ADMIN"), admin.updateNotifications);
+    await query('UPDATE system_settings SET setting_value = ?, updated_by = ? WHERE setting_key = ?', 
+      [work_start_time, adminId, 'work_start_time']);
+    await query('UPDATE system_settings SET setting_value = ?, updated_by = ? WHERE setting_key = ?', 
+      [work_end_time, adminId, 'work_end_time']);
+
+    res.json({ success: true, message: 'Working hours updated successfully' });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Error updating working hours', error: error.message });
+  }
+};
+
+// UPDATE POLICIES
+exports.updatePolicies = async (req, res) => {
+  try {
+    const { late_threshold_minutes, full_day_hours } = req.body;
+    const adminId = req.user.id;
+
+    await query('UPDATE system_settings SET setting_value = ?, updated_by = ? WHERE setting_key = ?', 
+      [late_threshold_minutes, adminId, 'late_threshold_minutes']);
+    await query('UPDATE system_settings SET setting_value = ?, updated_by = ? WHERE setting_key = ?', 
+      [full_day_hours, adminId, 'full_day_hours']);
+
+    res.json({ success: true, message: 'Policies updated successfully' });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Error updating policies', error: error.message });
+  }
+};
+
+// UPDATE NOTIFICATIONS
+exports.updateNotifications = async (req, res) => {
+  try {
+    const { notify_absent, notify_late, notify_leave } = req.body;
+    const adminId = req.user.id;
+
+    await query('UPDATE system_settings SET setting_value = ?, updated_by = ? WHERE setting_key = ?', 
+      [notify_absent, adminId, 'notify_absent']);
+    await query('UPDATE system_settings SET setting_value = ?, updated_by = ? WHERE setting_key = ?', 
+      [notify_late, adminId, 'notify_late']);
+    await query('UPDATE system_settings SET setting_value = ?, updated_by = ? WHERE setting_key = ?', 
+      [notify_leave, adminId, 'notify_leave']);
+
+    res.json({ success: true, message: 'Notification settings updated successfully' });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Error updating notifications', error: error.message });
+  }
+};
+
 
 module.exports = router;

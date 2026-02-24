@@ -114,9 +114,7 @@ window.loadOverviewData = async function () {
 
     console.log("Dashboard UI updated successfully!");
 
-    // ===================================
-    // 7. LOAD ACTIVITY FEED
-    // ===================================
+    // Load activity feed with today's records
     loadActivityFeed(todayRecords);
 
   } catch (error) {

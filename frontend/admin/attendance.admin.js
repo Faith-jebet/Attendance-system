@@ -28,7 +28,7 @@ const AttendanceAdmin = {
         year: parseInt(yearFilter.value)
       };
       
-      console.log("📥 Loading attendance with filters:", params);
+      console.log("Loading attendance with filters:", params);
       
       const response = await api.getAttendance(params);
       this.allRecords = response.data || response || [];
@@ -89,7 +89,7 @@ const AttendanceAdmin = {
     
     // Render table rows
     tbody.innerHTML = pageRecords.map(record => {
-      const statusClass = (record.status || 'present').toLowerCase();
+      const statusClass = (record.status || 'present', 'absent', 'leave').toLowerCase();
       const date = this.formatDate(record.date);
       
       return `
@@ -99,7 +99,7 @@ const AttendanceAdmin = {
           <td>${date}</td>
           <td>${record.check_in || '-'}</td>
           <td>${record.check_out || '-'}</td>
-          <td><span class="status-badge status-${statusClass}">${record.status || 'PRESENT'}</span></td>
+          <td><span class="status-badge status-${statusClass}">${record.status || 'PRESENT', 'ABSENT', 'LEAVE'}</span></td>
           <td>${record.working_hours || '0.00'}h</td>
           <td>${record.notes || '-'}</td>
         </tr>

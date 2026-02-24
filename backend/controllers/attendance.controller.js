@@ -27,7 +27,7 @@ function calculateWorkingHours(checkIn, checkOut) {
 // CHECK-IN
 exports.checkIn = async (req, res) => {
   try {
-    const { date, checkIn } = req.body;
+    const { date, checkIn, status, notes, checkOut } = req.body;
     const userId = req.user.id;
 
     // Extract date-only to prevent timezone issues
@@ -45,17 +45,24 @@ exports.checkIn = async (req, res) => {
         message: 'Already checked in for this date'
       });
     }
+    
+// valid status
+  const validStatuses = ['PRESENT', 'ABSENT', 'LEAVE'];
+    const finalStatus = validStatuses.includes(status?.toUpperCase()) 
+      ? status.toUpperCase() 
+      : 'PRESENT';
+
 
     // Insert check-in
     const result = await query(
       'INSERT INTO attendance (user_id, date, check_in, status) VALUES (?, ?, ?, ?)',
-      [userId, dateOnly, checkIn, 'PRESENT']
+      [userId, dateOnly, checkIn, finalStatus]
     );
 
     res.status(201).json({
       success: true,
       message: 'Checked in successfully',
-      data: { id: result.insertId, date: dateOnly, checkIn }
+      data: { id: result.insertId, date: dateOnly, checkIn, status: finalStatus }
     });
   } catch (error) {
     console.error('Check-in error:', error);

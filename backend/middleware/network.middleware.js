@@ -7,14 +7,12 @@ const restrictNetwork = (req, res, next) => {
   console.log("  Raw IP:", clientIP);
   console.log("  Route:", req.path);
 
-  // Normalize IPv6 → IPv4
   clientIP = clientIP.replace("::ffff:", "").trim();
 
-  // Block localhost
+  // Allow localhost
   if (clientIP === "127.0.0.1" || clientIP === "::1") {
-    return res.status(403).json({
-      message: "Login not allowed from localhost"
-    });
+    console.log("Access GRANTED - Localhost");
+    return next();
   }
 
   // Allow school Wi-Fi public IP
@@ -23,8 +21,8 @@ const restrictNetwork = (req, res, next) => {
     return next();
   }
 
-  // Allow local network (same machine or same LAN as server)
-  if (clientIP.startsWith("192.168.179.")) {
+  // Allow any local network
+  if (clientIP.startsWith("192.168.")) {
     console.log("Access GRANTED - Local network");
     return next();
   }

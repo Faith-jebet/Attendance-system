@@ -8,7 +8,6 @@ module.exports = (req, res, next) => {
     return res.status(403).json({ message: "No token provided" });
   }
 
-  // Expected: "Bearer <token>"
   const parts = authHeader.split(" ");
 
   if (parts.length !== 2 || parts[0] !== "Bearer") {
@@ -21,7 +20,6 @@ module.exports = (req, res, next) => {
     if (err) {
       return res.status(401).json({ message: "Unauthorized" });
     }
-
     req.user = decoded;
     next();
   });

@@ -176,8 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Setup mark attendance button
   setupMarkAttendance();
   
-  // Load attendance records
-  UserAttendanceService.load();
   
   console.log(" User Attendance System initialized!");
 });

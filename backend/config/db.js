@@ -14,7 +14,7 @@ db.connect((err) => {
     console.error("❌ Database connection failed:", err.message);
     return;
   }
-  console.log("✅ MySQL Connected Successfully");
+  console.log("✅ Connected to Remote MySQL Database");
 });
 
 module.exports = db;

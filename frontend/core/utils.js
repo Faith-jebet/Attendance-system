@@ -1,6 +1,3 @@
-// =======================
-// Utility Functions
-// =======================
 
 // DOM Elements
 window.loginPage = document.getElementById("loginPage");

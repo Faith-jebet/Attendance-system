@@ -69,6 +69,7 @@
     } else {
       window.showPage(userAttendance);
       if (window.loadUserAttendance) window.loadUserAttendance();
+      UserAttendanceService.load();
     }
   } else {
     window.showPage(loginPage);

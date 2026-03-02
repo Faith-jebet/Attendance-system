@@ -1,4 +1,3 @@
-
 const express = require("express");
 const db = require("../config/db");
 const router = express.Router();
@@ -57,9 +56,6 @@ router.get("/", verifyToken, async (req, res) => {
     }
 
     sql += " ORDER BY date DESC";
-
-    console.log("SQL:", sql);
-    console.log("Params:", params);
 
     db.query(sql, params, (err, results) => {
       if (err) {

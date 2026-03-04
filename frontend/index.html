@@ -13,32 +13,9 @@
         <div class="login-icon">
           <svg width="60" height="60" viewBox="0 0 60 60">
             <circle cx="30" cy="30" r="30" fill="#5B4FE0" />
-            <circle
-              cx="30"
-              cy="30"
-              r="18"
-              fill="none"
-              stroke="white"
-              stroke-width="2"
-            />
-            <line
-              x1="30"
-              y1="30"
-              x2="30"
-              y2="18"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-            />
-            <line
-              x1="30"
-              y1="30"
-              x2="38"
-              y2="24"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-            />
+            <circle cx="30" cy="30" r="18" fill="none" stroke="white" stroke-width="2" />
+            <line x1="30" y1="30" x2="30" y2="18" stroke="white" stroke-width="2" stroke-linecap="round" />
+            <line x1="30" y1="30" x2="38" y2="24" stroke="white" stroke-width="2" stroke-linecap="round" />
           </svg>
         </div>
         <h1>Attendance System</h1>
@@ -48,24 +25,12 @@
         <form id="loginForm">
           <div class="form-group">
             <label for="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              placeholder="user@example.com"
-              required
-            />
+            <input type="email" id="email" placeholder="user@example.com" required />
           </div>
-
           <div class="form-group">
             <label for="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              placeholder="••••••••"
-              required
-            />
+            <input type="password" id="password" placeholder="••••••••" required />
           </div>
-
           <div class="form-options">
             <label class="checkbox-label">
               <input type="checkbox" id="rememberMe" />
@@ -73,9 +38,7 @@
             </label>
             <a href="#" class="forgot-link">Forgot password?</a>
           </div>
-
           <button type="submit" class="btn btn-primary">Sign In</button>
-
           <p class="signup-text">
             Don't have an account? <a href="#" id="showSignup">Sign up</a>
           </p>
@@ -85,30 +48,15 @@
         <form id="signupForm" style="display: none">
           <div class="form-group">
             <label for="signupName">Full Name</label>
-            <input
-              type="text"
-              id="signupName"
-              placeholder="John Doe"
-              required
-            />
+            <input type="text" id="signupName" placeholder="John Doe" required />
           </div>
           <div class="form-group">
             <label for="signupEmail">Email</label>
-            <input
-              type="email"
-              id="signupEmail"
-              placeholder="user@example.com"
-              required
-            />
+            <input type="email" id="signupEmail" placeholder="user@example.com" required />
           </div>
           <div class="form-group">
             <label for="signupPassword">Password</label>
-            <input
-              type="password"
-              id="signupPassword"
-              placeholder="••••••••"
-              required
-            />
+            <input type="password" id="signupPassword" placeholder="••••••••" required />
           </div>
           <div class="form-group">
             <label for="signupRole">Role</label>
@@ -129,49 +77,35 @@
 
     <!-- Admin Dashboard -->
     <div id="adminDashboard" class="page">
+      <!-- Mobile Sidebar Toggle -->
+      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Sidebar Overlay -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
       <div class="dashboard-layout">
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
           <div class="sidebar-header">
             <svg width="40" height="40" viewBox="0 0 40 40">
               <circle cx="20" cy="20" r="20" fill="#5B4FE0" />
-              <circle
-                cx="20"
-                cy="20"
-                r="12"
-                fill="none"
-                stroke="white"
-                stroke-width="1.5"
-              />
-              <line
-                x1="20"
-                y1="20"
-                x2="20"
-                y2="12"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-              />
-              <line
-                x1="20"
-                y1="20"
-                x2="26"
-                y2="16"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-              />
+              <circle cx="20" cy="20" r="12" fill="none" stroke="white" stroke-width="1.5" />
+              <line x1="20" y1="20" x2="20" y2="12" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+              <line x1="20" y1="20" x2="26" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round" />
             </svg>
             <h2>Admin Panel</h2>
           </div>
 
           <nav class="sidebar-nav">
-            <a href="#" class="nav-item active" data-view="overview"
-              >Overview</a
-            >
+            <a href="#" class="nav-item active" data-view="overview">Overview</a>
             <a href="#" class="nav-item" data-view="attendance">Attendance</a>
             <a href="#" class="nav-item" data-view="employees">Employees</a>
             <a href="#" class="nav-item" data-view="settings">Settings</a>
-            
           </nav>
 
           <button class="logout-btn" id="adminLogout">Logout</button>
@@ -193,14 +127,7 @@
                   <div class="stat-change">Active users</div>
                 </div>
                 <div class="stat-icon blue">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                     <circle cx="9" cy="7" r="4"></circle>
                     <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -216,14 +143,7 @@
                   <div class="stat-change" id="attendanceRate">0% attendance rate</div>
                 </div>
                 <div class="stat-icon green">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
                 </div>
@@ -236,14 +156,7 @@
                   <div class="stat-change" id="absentPercent">0% of total</div>
                 </div>
                 <div class="stat-icon red">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
                   </svg>
@@ -257,22 +170,8 @@
                   <div class="stat-change">Approved leaves</div>
                 </div>
                 <div class="stat-icon orange">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <rect
-                      x="3"
-                      y="4"
-                      width="18"
-                      height="18"
-                      rx="2"
-                      ry="2"
-                    ></rect>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                     <line x1="16" y1="2" x2="16" y2="6"></line>
                     <line x1="8" y1="2" x2="8" y2="6"></line>
                     <line x1="3" y1="10" x2="21" y2="10"></line>
@@ -281,14 +180,13 @@
               </div>
             </div>
 
-            <!-- Recent Activity Timeline -->
+            <!-- Recent Activity -->
             <div class="activity-section">
               <div class="section-header-inline">
                 <h2>Today's Activity</h2>
                 <span class="activity-date" id="activityDate">Monday, February 03, 2026</span>
               </div>
               <div class="activity-list" id="activityList">
-                <!-- Will be populated by JS -->
                 <div class="activity-empty">
                   <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="10"></circle>
@@ -300,12 +198,8 @@
             </div>
           </div>
 
-          <!-- attendance section -->
-          <section
-            id="attendanceSection"
-            class="content-section"
-            style="display: none"
-          >
+          <!-- Attendance Section -->
+          <section id="attendanceSection" class="content-section" style="display: none">
             <div class="section-header">
               <h2>Attendance Records</h2>
               <div class="filters">
@@ -335,7 +229,7 @@
                   <option value="half-day">Half Day</option>
                   <option value="leave">On Leave</option>
                 </select>
-                <button id="exportAttendanceBtn" class="btn-secondary">
+                <button id="exportAttendanceBtn" class="btn-secondary" style="width:auto;padding:9px 16px;font-size:14px;margin:0">
                   📥 Export to Excel
                 </button>
               </div>
@@ -357,10 +251,7 @@
                 </thead>
                 <tbody id="attendanceTableBody">
                   <tr>
-                    <td
-                      colspan="8"
-                      style="text-align: center; padding: 2rem; color: #a0aec0"
-                    >
+                    <td colspan="8" style="text-align:center;padding:2rem;color:#a0aec0">
                       Loading attendance records...
                     </td>
                   </tr>
@@ -368,22 +259,17 @@
               </table>
             </div>
 
-            <!-- Pagination -->
             <div class="pagination">
               <button id="prevPage" class="btn-pagination">← Previous</button>
               <span id="pageInfo">Page 1 of 1</span>
               <button id="nextPage" class="btn-pagination">Next →</button>
             </div>
           </section>
+          <!-- /Attendance Section -->
 
           <!-- Employee Section -->
-          <div
-            id="employeesSection"
-            class="content-section"
-            style="display: none"
-          >
+          <div id="employeesSection" class="content-section" style="display: none">
             <div class="employee-section">
-              <!-- Employee Stats -->
               <div class="employee-stats-grid">
                 <div class="employee-stat-card">
                   <div class="stat-number" id="totalEmployeesCount">0</div>
@@ -399,18 +285,13 @@
                 </div>
               </div>
 
-              <!-- Search and Actions -->
               <div class="employee-controls">
                 <div class="search-box">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="11" cy="11" r="8"></circle>
                     <path d="m21 21-4.35-4.35"></path>
                   </svg>
-                  <input 
-                    type="text" 
-                    id="employeeSearch" 
-                    placeholder="Search by name, email, or ID..."
-                  />
+                  <input type="text" id="employeeSearch" placeholder="Search by name, email, or ID..." />
                 </div>
                 <div class="employee-actions">
                   <select id="roleFilter" class="filter-select-small">
@@ -428,7 +309,6 @@
                 </div>
               </div>
 
-              <!-- Employee Table -->
               <div class="table-container">
                 <table class="employee-table">
                   <thead>
@@ -444,7 +324,9 @@
                   </thead>
                   <tbody id="employeeTable">
                     <tr>
-                      <td colspan="7" style="text-align: center; padding: 32px; color: #a0aec0;">Loading employees...</td>
+                      <td colspan="7" style="text-align:center;padding:32px;color:#a0aec0">
+                        Loading employees...
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -453,19 +335,13 @@
           </div>
 
           <!-- Settings Section -->
-          <div
-            id="settingsSection"
-            class="content-section"
-            style="display: none"
-          >
+          <div id="settingsSection" class="content-section" style="display: none">
             <div class="settings-section">
               <h2>System Settings</h2>
-              
-              <!-- Working Hours Settings -->
+
               <div class="settings-card">
                 <h3>Working Hours Configuration</h3>
                 <p class="settings-description">Set the standard working hours for attendance calculation</p>
-                
                 <div class="settings-form">
                   <div class="form-row-settings">
                     <div class="form-group-settings">
@@ -477,52 +353,43 @@
                       <input type="time" id="workEndTime" value="17:00" class="settings-input" />
                     </div>
                   </div>
-                  <button class="btn-save-settings">Save Working Hours</button>
+                  <button class="btn-save-settings" id="saveWorkingHours">Save Working Hours</button>
                 </div>
               </div>
 
-              <!-- Attendance Policies -->
               <div class="settings-card">
                 <h3>Attendance Policies</h3>
                 <p class="settings-description">Configure attendance rules and thresholds</p>
-                
                 <div class="settings-form">
                   <div class="form-group-settings">
                     <label for="lateThreshold">Late Arrival Threshold (minutes after start time)</label>
                     <input type="number" id="lateThreshold" value="15" class="settings-input" min="0" max="60" />
                   </div>
-                  
                   <div class="form-group-settings">
                     <label for="fullDayHours">Minimum Hours for Full Day</label>
                     <input type="number" id="fullDayHours" value="8" class="settings-input" min="1" max="12" step="0.5" />
                   </div>
-                  
-                  <button class="btn-save-settings">Save Policies</button>
+                  <button class="btn-save-settings" id="savePolicies">Save Policies</button>
                 </div>
               </div>
 
-              <!-- Notifications -->
               <div class="settings-card">
                 <h3>Notification Settings</h3>
                 <p class="settings-description">Manage email notifications and alerts</p>
-                
                 <div class="settings-form">
                   <div class="checkbox-setting">
                     <input type="checkbox" id="notifyAbsent" checked />
                     <label for="notifyAbsent">Send daily absent employee report to admin</label>
                   </div>
-                  
                   <div class="checkbox-setting">
                     <input type="checkbox" id="notifyLate" checked />
                     <label for="notifyLate">Alert admin when employees are late</label>
                   </div>
-                  
                   <div class="checkbox-setting">
                     <input type="checkbox" id="notifyLeave" checked />
                     <label for="notifyLeave">Notify admin of leave requests</label>
                   </div>
-                  
-                  <button class="btn-save-settings">Save Notifications</button>
+                  <button class="btn-save-settings" id="saveNotifications">Save Notifications</button>
                 </div>
               </div>
             </div>
@@ -531,7 +398,7 @@
       </div>
     </div>
 
-    <!-- User Attendance Page - UPDATED -->
+    <!-- User Attendance Page -->
     <div id="userAttendance" class="page">
       <div class="user-layout">
         <header class="user-header">
@@ -540,7 +407,6 @@
         </header>
 
         <div class="user-content-new">
-          <!-- Current Date Display -->
           <div class="user-welcome-header">
             <div>
               <h2>Welcome Back!</h2>
@@ -549,40 +415,23 @@
           </div>
 
           <div class="attendance-grid-layout">
-            <!-- Mark Today's Attendance Card -->
+
+            <!-- Mark Today's Attendance -->
             <div class="mark-attendance-card-new">
               <h3 class="section-title">Mark Today's Attendance</h3>
-              
               <div class="attendance-form-new">
                 <div class="form-group-new">
                   <label for="attendanceDate">Date</label>
-                  <input
-                    type="date"
-                    id="attendanceDate"
-                    class="form-input-new"
-                    required
-                  />
+                  <input type="date" id="attendanceDate" class="form-input-new" required />
                 </div>
-
                 <div class="form-group-new">
                   <label for="checkInTime">Check-in Time</label>
-                  <input
-                    type="time"
-                    id="checkInTime"
-                    class="form-input-new"
-                    required
-                  />
+                  <input type="time" id="checkInTime" class="form-input-new" required />
                 </div>
-
                 <div class="form-group-new">
                   <label for="checkOutTime">Check-out Time</label>
-                  <input 
-                    type="time" 
-                    id="checkOutTime" 
-                    class="form-input-new"
-                  />
+                  <input type="time" id="checkOutTime" class="form-input-new" />
                 </div>
-
                 <div class="form-group-new">
                   <label for="attendanceStatus">Status</label>
                   <select id="attendanceStatus" class="form-input-new" required>
@@ -592,46 +441,52 @@
                     <option value="LEAVE">On Leave</option>
                   </select>
                 </div>
-
                 <div class="form-group-new">
                   <label for="attendanceNotes">Notes (Optional)</label>
-                  <textarea
-                    id="attendanceNotes"
-                    class="form-input-new"
-                    rows="3"
-                    placeholder="Add any notes..."
-                  ></textarea>
+                  <textarea id="attendanceNotes" class="form-input-new" rows="3" placeholder="Add any notes..."></textarea>
                 </div>
-
                 <button id="markAttendanceBtn" class="submit-btn-new">
                   Mark Attendance
                 </button>
               </div>
             </div>
 
-           <!-- Recent Attendance History -->
-<div class="attendance-table">
-  <h2>Recent Attendance History</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>DATE</th>
-        <th>CHECK-IN</th>
-        <th>CHECK-OUT</th>
-        <th>STATUS</th>
-        <th>HOURS</th>
-        <th>NOTES</th>
-      </tr>
-    </thead>
-    <tbody id="userAttendanceTableBody">
-      <tr>
-        <td colspan="6">Loading your attendance records...</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-  </body>
-  <script src="core/api.service.js"></script>
+            <!-- Recent Attendance History -->
+            <div class="history-card-new">
+              <h3 class="section-title">Recent Attendance History</h3>
+              <div class="history-table-wrapper">
+                <table class="history-table-new">
+                  <thead>
+                    <tr>
+                      <th>DATE</th>
+                      <th>CHECK-IN</th>
+                      <th>CHECK-OUT</th>
+                      <th>STATUS</th>
+                      <th>HOURS</th>
+                      <th>NOTES</th>
+                    </tr>
+                  </thead>
+                  <!-- ID matches what attendance.user.js targets -->
+                  <tbody id="userAttendanceTableBody">
+                    <tr>
+                      <td colspan="6" class="attendance-loading">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <path d="M12 6v6l4 2"></path>
+                        </svg>
+                        <span>Loading your attendance records...</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="core/api.service.js"></script>
     <script src="core/utils.js"></script>
     <script src="core/auth.js"></script>
     <script src="admin/dashboard.js"></script>
@@ -640,4 +495,5 @@
     <script src="admin/settings.js"></script>
     <script src="users/attendance.user.js"></script>
     <script src="script.js"></script>
+  </body>
 </html>

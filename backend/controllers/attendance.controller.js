@@ -383,7 +383,7 @@ module.exports = {
   checkOut: exports.checkOut,
   markAttendance: exports.markAttendance,
   getMyAttendance: exports.getMyAttendance,
-  getUserAttendance: exports.getMyAttendance, // Alias for compatibility
+  getUserAttendance: exports.getMyAttendance, 
   getTodayStatus: exports.getTodayStatus,
   updateNotes: exports.updateNotes,
   getAllAttendance: exports.getAllAttendance
